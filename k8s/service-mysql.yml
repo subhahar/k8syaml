@@ -1,47 +1,17 @@
 --- 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata: 
   labels: 
     app: mysql
     environment: testing
     version: "1.0"
-  name: mysql
+  name: mysql-service
   namespace: nl-amis-testing
 spec: 
-  replicas: 1
+  clusterIP: None
+  ports: 
+    - 
+      port: 3306
   selector: 
-    matchLabels: 
-      app: mysql
-      environment: testing
-      version: "1.0"
-  strategy: 
-    type: Recreate
-  template: 
-    metadata: 
-      labels: 
-        app: mysql
-        environment: testing
-        version: "1.0"
-    spec: 
-      containers: 
-        - 
-          env: 
-            - 
-              name: MYSQL_ROOT_PASSWORD
-              value: root123
-          image: "mysql:5.7"
-          name: mysql
-          ports: 
-            - 
-              containerPort: 3306
-              name: mysql
-          volumeMounts: 
-            - 
-              mountPath: /var/lib/mysql
-              name: mysql-persistent-storage
-      volumes: 
-        - 
-          name: mysql-persistent-storage
-          persistentVolumeClaim: 
-            claimName: mysql-pv-claim
+    app: mysql

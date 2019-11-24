@@ -1,0 +1,38 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    app: kubdocker201
+    environment: testing
+    version: "1.0"
+  name: kubdocker201-v1.0
+  namespace: nl-amis-testing
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: kubdocker201
+      environment: testing
+      version: "1.0"
+  template: 
+    metadata: 
+      labels: 
+        app: kubdocker201
+        environment: testing
+        version: "1.0"
+    spec: 
+      containers: 
+        - 
+          env: 
+            - 
+              name: spring.profiles.active
+              value: testing
+            - 
+              name: spring.datasource.url
+              value: "jdbc:mysql://mysql-service.nl-amis-testing/test?allowPublicKeyRetrieval=true&useSSL=false"
+          image: "kubdocker201:v1.0"
+          name: kubdocker201-v1-0-container
+          ports: 
+            - 
+              containerPort: 9091

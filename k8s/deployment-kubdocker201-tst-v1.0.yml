@@ -30,8 +30,8 @@ spec:
               value: testing
             - 
               name: spring.datasource.url
-              value: "jdbc:mysql://mysql-service.nl-amis-testing/test"
-          image: "subhahar/dockerimagekub"
+              value: "jdbc:mysql://mysql/test"
+          image: "subhahar/dockerimagekub:latest"
           name: kubdocker201-v1-0-container
           ports: 
             - 

@@ -5,7 +5,7 @@ metadata:
   labels: 
     type: local
   name: mysql-persistent-volume
-  namespace: nl-amis-testing
+  namespace: nl-kub-testing
 spec: 
   accessModes: 
     - ReadWriteOnce

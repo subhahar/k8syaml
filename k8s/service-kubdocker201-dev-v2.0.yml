@@ -4,19 +4,19 @@ kind: Service
 metadata: 
   labels: 
     app: kubdocker201
-    environment: development
-    version: "2.0"
-  name: kubdocker201-v2-0-service
-  namespace: nl-amis-development
+    environment: testing
+    version: "1.0"
+  name: kubdocker201-v1-0-service
+  namespace: nl-kub-testing
 spec: 
   ports: 
     - 
-      nodePort: 30020
-      port: 9190
+      nodePort: 30110
+      port: 9191
       protocol: TCP
-      targetPort: 9090
+      targetPort: 9091
   selector: 
     app: kubdocker201
-    environment: development
-    version: "2.0"
+    environment: testing
+    version: "1.0"
   type: NodePort

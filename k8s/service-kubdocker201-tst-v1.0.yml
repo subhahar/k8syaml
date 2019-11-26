@@ -7,7 +7,7 @@ metadata:
     environment: testing
     version: "1.0"
   name: kubdocker201-v1-0-service
-  namespace: nl-amis-testing
+  namespace: nl-kub-testing
 spec: 
   ports: 
     - 
